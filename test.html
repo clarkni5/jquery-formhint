@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+	<title>Test Page - jQuery FormHint Plugin</title>
+	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script src="jquery.formhint.js"></script>
+	
+	<style>
+		input[type=text].hint { color: #999; }
+	</style>
+</head>
+<body>
+
+<h1>Test Page</h1>
+
+<form>
+	<input type="text" name="first_name" value="" title="First name"><br>
+	<input type="text" name="last_name" value="" title="Last name"><br>
+	<br>
+	<input type="text" name="City" value="Portland" title="City"><br>
+	<br>
+	<input type="submit" value="Submit"><br>
+</form>
+
+<script>
+
+$(document).ready(function() {
+	$("form").formHint();
+	
+	$("form").submit(function() {
+		alert("On submit, hint text should be removed.");
+		return false;
+	});
+});
+
+</script>
+
+</body>
+</html>
