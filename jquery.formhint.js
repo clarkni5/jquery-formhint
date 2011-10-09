@@ -40,8 +40,12 @@
 			$("input[type=text]", this).each(function() {
 				var that = $(this);
 				
-				that.data("hint", that.attr("title"));
-				that.attr("title", "");
+				// Do we need to pull the hint text from the title attribute?
+				var title = that.attr("title");
+				if ( ! that.data("hint") && title) {
+					that.data("hint", title); // store the hint text as a data attribute
+					that.attr("title", ""); // clear the title tag to prevent the mouseover tooltip
+				}
 				
 				setHint(that);
 				

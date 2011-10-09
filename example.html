@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-	<title>Test Page - jQuery FormHint Plugin</title>
+	<title>jQuery FormHint Plugin Example</title>
 	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script src="jquery.formhint.js"></script>
 	
@@ -11,13 +11,16 @@
 </head>
 <body>
 
-<h1>Test Page</h1>
+<h1>Example Form</h1>
 
 <form>
-	<input type="text" name="first_name" value="" title="First name"><br>
-	<input type="text" name="last_name" value="" title="Last name"><br>
+	<input type="text" name="first_name" value="" data-hint="First name"><br>
+	<input type="text" name="last_name" value="" data-hint="Last name"><br>
 	<br>
-	<input type="text" name="City" value="Portland" title="City"><br>
+	<input type="text" name="city" value="Portland" data-hint="City"><br>
+	<br>
+	<!-- If you don't support HTML5, put the hint text in the title attribute -->
+	<input type="text" name="email" value="" title="Email address"><br>
 	<br>
 	<input type="submit" value="Submit"><br>
 </form>
@@ -27,6 +30,7 @@
 $(document).ready(function() {
 	$("form").formHint();
 	
+	// This is for testing purposes only
 	$("form").submit(function() {
 		alert("On submit, hint text should be removed.");
 		return false;
